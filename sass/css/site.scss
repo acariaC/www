@@ -4,6 +4,7 @@
 html {
   background-color: #000000
 }
+
 body {
   font-size: 16px;
   padding: 0;
@@ -12,14 +13,51 @@ body {
   background-color: #000000; /* Set a fallback color for when the image doesn't cover the entire screen */
 
   /* Setting a gradient background */
-  background: radial-gradient(circle at 50% 0%, #370a97, #000000 90%);
+  background: radial-gradient(circle at 60% 0%, #370a97, #000000 70%);
   background-size: 100% 100%; /* This will cover the entire viewport */
   background-repeat: no-repeat; /* This will prevent the background from repeating */
+
+  /* Adding a subtle pattern effect for a detailed look */
+  background-blend-mode: multiply;
+  background-size: cover;
+  color: #FDF7FF; /* Ensures text is readable on dark backgrounds */
+  font-family: 'Arial', sans-serif; /* Set your desired font */
+  margin: 0; /* Removes default margins */
+  height: 100vh; /* Ensures the gradient covers the entire screen */
 }
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px; /* Adjust the size for grid density */
+  z-index: 1; /* Places the pattern above the gradient but below any content */
+
+  /* Fading effect towards the bottom */
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0));
+}
+
+/* currently disabled while testing grid */
+.separator {
+  width: 100%;
+  height: 1px; /* Adjust the thickness */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+  margin-bottom: 20px;
+  border: none;
+}
+
+
 
 @for $i from 1 through 6 {
   h#{$i} {
-    color: var(--bs-primary);
+    color: #9C89B3;
     padding: 0 0 0 1px;
     margin: 0.5em 0 0.5em 0;
     height: 2.5rem - (0.167rem * $i);
@@ -28,13 +66,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: end;
-    border-bottom: 1px var(--bs-primary) solid;
+    border-bottom: none;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 5%, rgba(255, 255, 255, 0) 100%);    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: bottom;
+    background-clip: content-box;
     font-size: 2rem - (0.167rem * $i);
   }
 
   h#{$i} > a {
-    color: var(--bs-primary);
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
     text-decoration: none;
+    transition: text-shadow 0.1s ease-in-out;
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
   }
 }
 
@@ -79,7 +128,7 @@ body {
 }
 
 a {
-  color: var(--bs-green);
+  color: #64BAAA
 }
 
 .dropdown:hover .dropdown-menu {
@@ -146,10 +195,27 @@ img {
 }
 
 .nav-link {
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
+
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* This will create a glow effect around the text */
+  }
 }
 
 #nav-link-special {
-  color: yellow;
+  color: rgba(255, 255, 255, 1);
+  background-color: #370a97;
+  border: 1px solid #b681f1;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.45);
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#nav-link-special:hover {
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.45); /* Inner glow effect */
 }
