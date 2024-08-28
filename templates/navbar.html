@@ -1,22 +1,23 @@
 <header id="navbar" style="padding-top: 10px;" class="row mb-3">
     <div class="col">
-        <nav class="navbar navbar-expand-md bg-body-tertiary">
+        <nav class="navbar navbar-expand-md bg-body-tertiary" id="test">
             <div class="container-fluid">
                 <a class="navbar-brand" href='{{ get_url(path="@/_index.md", lang=lang) }}'
-                   style="padding-top: 10px; padding-bottom: 10px;">
+                   style="padding-top: 10px; padding-bottom: 10px; padding-right: 30px;">
                     <img style="height: 28px;"
                          loading="lazy"
                          decoding="async"
                          id="img-logo-mainframe"
                          src="{{ get_url(path="/media/img/logo-mainframe.svg") }}"
                          alt="Mainframe Logo">
-                    <img style="height: 50px;"
+                    <img style="height: 50px; filter: grayscale(100%);"
                          id="img-logo-ktt"
                          src="{{ get_url(path="/media/img/logo-ktt.png") }}"
                          loading="lazy"
                          decoding="async"
                          alt="Kreativität trifft Technik e.V. Logo">
                 </a>
+                <!-- remove grayscale, im just annoyed by the color -->
 
                 <button class="navbar-toggler" type="button">
                     <span class="navbar-toggler-icon"></span>
@@ -58,13 +59,6 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" role="button" aria-expanded="false"
-                               href='{{ get_url(path="@/contact.md#" ~ trans(key="arrival", lang=lang) | lower, lang=lang) }}'>
-                                {{ trans(key="arrival", lang=lang) }}
-                            </a>
-                        </li>
-
                     </ul>
 
                     <ul class="navbar-nav navbar-right">
@@ -82,12 +76,19 @@
                             {% set raw_path = "" %}
                         {% endif %}
 
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-link-special" role="button" aria-expanded="false"
+                               href='{{ get_url(path="@/contact.md#" ~ trans(key="arrival", lang=lang) | lower, lang=lang) }}'>
+                                {{ trans(key="arrival", lang=lang) }}
+                            </a>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">
                                 <img id="img-icon-lang"
                                      src=""
-                                     style="height: 28px;"
+                                     style="height: 20px;"
                                      alt="{{ trans(key="language",lang=lang) }}">
                             </a>
                             <ul class="dropdown-menu">
