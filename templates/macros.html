@@ -91,7 +91,7 @@
     <div class="container-fluid">
         {% for blog_page in pages %}
 
-            <div class="row py-1 border-bottom">
+            <div class="row py-1">
                 {% if blog_page.authors %}
                     {% set page_author = blog_page.authors | join(sep=", ") %}
                 {% else %}
@@ -114,13 +114,13 @@
                     {% set thumbnail_url = resized_image.url %}
                 {% endif %}
 
-                <div class="col-sm-3 d-flex flex-column justify-content-center text-center">
+                <div class="col-sm-2 d-flex">
                     <img alt="Thumbnail Image for {{ page_title }}"
                          src="{{ thumbnail_url }}"
                          decoding="async"
-                         class="rounded rounded-2"
+                         class="rounded"
                          loading="lazy"
-                         style="height: 150px; max-width: 100%;"
+                         style="height: 150px; width: 150px; object-fit: cover;"
                     />
                 </div>
                 <div class="col-sm-9 d-flex flex-column">
@@ -134,7 +134,7 @@
                         {% set lang_str = lang_str | replace(from="%author%", to=page_author) %}
                         {{ lang_str }}
                     </p>
-                    <h4 class="text-primary mb-1 ps-0 border-bottom-0">
+                    <h4 style="color: #a1d1ff">
                         <a href="{{ get_url(path='@/' ~ blog_page.relative_path, lang=lang) }}" class="text-reset text-decoration-none">
                             {{ page_title }}
                         </a>
@@ -162,6 +162,7 @@
                     </p>
                 </div>
             </div>
+        <div class="separator" style="margin: 10px"></div>
         {% endfor %}
     </div>
 

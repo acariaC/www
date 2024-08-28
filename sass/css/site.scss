@@ -2,28 +2,44 @@
   --bs-green: #0ce3ac;
 }
 html {
-  background-color: #000000
+  background-color: #0B1215
+}
+
+.purple {
+  background-color: #800080;
+}
+
+.mediumPurple {
+  background-color: #9370DB;
+}
+
+.darkPurple {
+  background-color: #4B0082;
+}
+
+.lightPurple {
+  background-color: #E6E6FA;
+}
+
+.deepPurple {
+  background-color: #9932CC;
+}
+
+.violet {
+  background-color: #EE82EE;
+}
+
+.lavender {
+  background-color: #E6E6FA;
 }
 
 body {
   font-size: 16px;
   padding: 0;
   margin: 0;
-  min-height: 100vh; /* This will ensure the body is at least as tall as the viewport */
-  background-color: #000000; /* Set a fallback color for when the image doesn't cover the entire screen */
-
-  /* Setting a gradient background */
-  background: radial-gradient(circle at 60% 0%, #370a97, #000000 70%);
-  background-size: 100% 100%; /* This will cover the entire viewport */
-  background-repeat: no-repeat; /* This will prevent the background from repeating */
-
-  /* Adding a subtle pattern effect for a detailed look */
-  background-blend-mode: multiply;
-  background-size: cover;
-  color: #FDF7FF; /* Ensures text is readable on dark backgrounds */
-  font-family: 'Arial', sans-serif; /* Set your desired font */
-  margin: 0; /* Removes default margins */
-  height: 100vh; /* Ensures the gradient covers the entire screen */
+  min-height: 100vh;
+  background: #0B1215 radial-gradient(circle at 60% 0%, #370a97, #0B1215 70%);
+  color: #FDF7FF;
 }
 
 body::before {
@@ -43,7 +59,6 @@ body::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0));
 }
 
-/* currently disabled while testing grid */
 .separator {
   width: 100%;
   height: 1px; /* Adjust the thickness */
@@ -52,9 +67,24 @@ body::before {
   border: none;
 }
 
+@for $i from 4 through 6 {
+  h#{$i} {
+    color: #8292ca;
+    padding: 0 0 0 1px;
+    margin: 0.5em 0 0.5em 0;
+    height: 2.5rem - (0.167rem * $i);
+    max-height: 2rem;
+    min-height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    border-bottom: none;
+    position: relative;
+    font-size: 2rem - (0.167rem * $i);
+  }
+}
 
-
-@for $i from 1 through 6 {
+@for $i from 1 through 3 {
   h#{$i} {
     color: #9C89B3;
     padding: 0 0 0 1px;
@@ -73,10 +103,10 @@ body::before {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -5px; // Adjust this value to move the line further away from the text
+      bottom: -5px;
       width: 100%;
       height: 1px;
-      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 5%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 4%, rgba(255, 255, 255, 0) 100%);
     }
   }
 
@@ -206,13 +236,13 @@ img {
 
   &:hover {
     color: rgba(255, 255, 255, 1);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* This will create a glow effect around the text */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   }
 }
 
 #nav-link-special {
   color: rgba(255, 255, 255, 1);
-  background-color: #370a97;
+  background-color: #7038ff;
   border: 1px solid #b681f1;
   border-radius: 8px;
   box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.45);
@@ -223,41 +253,21 @@ img {
 }
 
 #nav-link-special:hover {
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.45); /* Inner glow effect */
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.45);
 }
 
-.status-container {
-  background-color: purple;
+.news-title {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  text-decoration: none;
+  transition: text-shadow 0.1s ease-in-out;
 
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
 }
 
-.status-link {
-  background-color: purple; // Change this to your desired color
-}
-
-.status-title {
-  color: white;
-  background-color: purple;
-
-}
-
-.status-text {
-  // common styles for all status texts
-  background-color: purple;
-
-  &.status-unknown {
-    // styles for the unknown status text
-  }
-
-  &.status-closed {
-    // styles for the closed status text
-  }
-
-  &.status-closing {
-    // styles for the closing status text
-  }
-
-  &.status-open {
-    // styles for the open status text
-  }
+.container-fluid {
+  padding: 15px;
 }
