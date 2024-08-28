@@ -5,40 +5,12 @@ html {
   background-color: #0B1215
 }
 
-.purple {
-  background-color: #800080;
-}
-
-.mediumPurple {
-  background-color: #9370DB;
-}
-
-.darkPurple {
-  background-color: #4B0082;
-}
-
-.lightPurple {
-  background-color: #E6E6FA;
-}
-
-.deepPurple {
-  background-color: #9932CC;
-}
-
-.violet {
-  background-color: #EE82EE;
-}
-
-.lavender {
-  background-color: #E6E6FA;
-}
-
 body {
   font-size: 16px;
   padding: 0;
   margin: 0;
   min-height: 100vh;
-  background: #0B1215 radial-gradient(circle at 60% 0%, #370a97, #0B1215 70%);
+  background: #0B1215 radial-gradient(circle at 40% 60%, rgba(73, 182, 104, 0.2), #0B1215 70%);
   color: #FDF7FF;
 }
 
